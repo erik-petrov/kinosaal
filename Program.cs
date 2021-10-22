@@ -10,7 +10,8 @@ namespace variant7ulesanne3
     {
         static void Main(string[] args)
         {
-            ex2.Startex2();
+            ex1.Startex1();
+            //ex2.Startex2();
             Console.ReadLine();
         }
     }

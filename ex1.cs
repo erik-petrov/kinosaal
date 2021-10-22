@@ -29,16 +29,16 @@ namespace variant7ulesanne3
                 switch (dec)
                 {
                     case "big":
-                        printAr(big);
-                        buy(big);
+                        PrintAr(big);
+                        Buy(big);
                         break;
                     case "med":
-                        printAr(medium);
-                        buy(medium);
+                        PrintAr(medium);
+                        Buy(medium);
                         break;
                     case "small":
-                        printAr(small);
-                        buy(small);
+                        PrintAr(small);
+                        Buy(small);
                         break;
                     case "q":
                         goto q;
@@ -52,10 +52,11 @@ namespace variant7ulesanne3
             Console.ReadLine();
         }
 
-        static void printAr(int[,] arr)
+        static void PrintAr(int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
             {
+                Console.Write($"Rida {i}: ");
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
                     Console.Write(arr[i, j]);
@@ -64,19 +65,42 @@ namespace variant7ulesanne3
             }
         }
 
-        static void buy(int[,] arr)
+        static void Buy(int[,] arr)
         {
-            Console.WriteLine("Впишите, какое место хотите занять в кинотеатре(ряд, столбец): ");
-            string answer = Console.ReadLine();
-            string[] ans = answer.Split(',');
-            while (arr[Convert.ToInt32(ans[0]) - 1, Convert.ToInt32(ans[1]) - 1] != 0)
+            //Console.WriteLine("Впишите, какое место хотите занять в кинотеатре(ряд, столбец): ");
+            //string answer = Console.ReadLine();
+            //string[] ans = answer.Split(',');
+            //while (arr[Convert.ToInt32(ans[0]) - 1, Convert.ToInt32(ans[1]) - 1] != 0)
+            //{
+            //    Console.WriteLine("Место занято. Введите другое");
+            //    answer = Console.ReadLine();
+            //    ans = answer.Split(',');
+            //}
+            //arr[Convert.ToInt32(ans[0]) - 1, Convert.ToInt32(ans[1]) - 1] = 3;
+            //printAr(arr);
+
+            Console.WriteLine("Впишите, какое место хотите занять в кинотеатре(ряд): ");
+            int answer = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Сколько мест вы хотите?: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+        }
+        static void EmptyRows(int[,] arr, int amount, int row)
+        {
+            bool available = false;
+            int seats = Convert.ToInt32(Math.Round(Convert.ToDouble(arr.GetLength(1))/2));
+            for (int i = 0; i < arr.GetLength(1)/2; i++)
             {
-                Console.WriteLine("Место занято. Введите другое");
-                answer = Console.ReadLine();
-                ans = answer.Split(',');
+                if (arr[row, seats+i] == 0)
+                {
+                    for (int j = 0; j < amount; j++)
+                    {
+                        if (arr[row, seats+i+j] != 0)
+                        {
+                            break;
+                        }
+                    }
+                }
             }
-            arr[Convert.ToInt32(ans[0]) - 1, Convert.ToInt32(ans[1]) - 1] = 3;
-            printAr(arr);
         }
     }
 }

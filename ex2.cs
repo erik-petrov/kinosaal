@@ -28,7 +28,7 @@ namespace variant7ulesanne3
                     jagg[i][j] = rnd.Next(1, 15);
                 }
             }
-            printAr(jagg);
+            PrintAr(jagg);
             for (int i = 0; i < jagg.Length; i = i + 2)
             {
                 tempArr = jagg[i];
@@ -36,7 +36,7 @@ namespace variant7ulesanne3
                 jagg[i + 1] = tempArr;
             }
             Console.WriteLine();
-            printAr(jagg);
+            PrintAr(jagg);
             /*
             int rows = 1;
             do
@@ -63,7 +63,7 @@ namespace variant7ulesanne3
             Console.WriteLine();
             printAr(arr);*/
         }
-        static void printAr(int[,] arr)
+        static void PrintAr(int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
             {
@@ -74,7 +74,7 @@ namespace variant7ulesanne3
                 Console.WriteLine();
             }
         }
-        static void printAr(int[][] arr)
+        static void PrintAr(int[][] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
